@@ -1,19 +1,23 @@
-// export const SearchForm = () => {
-//   return (
-//     <header>
-//       <form onSubmit={this.handleSubmit}>
-//         <button type="submit">
-//           <span>Search</span>
-//         </button>
+import { useSearchParams } from 'react-router-dom';
 
-//         <input
-//           type="text"
-//           autoComplete="off"
-//           autoFocus
-//           placeholder="Search images and photos"
-//           name="search"
-//         />
-//       </form>
-//     </header>
-//   );
-// };
+export const SearchForm = () => {
+  const [, setSearchParams] = useSearchParams();
+
+  const handleSubmit = e => {
+    e.prevenDefault();
+    const search = e.target.query.value.toLowerCase().trim();
+    if (!search) return;
+    setSearchParams({ search });
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" autoComplete="off" autoFocus name="query" />
+        <button type="submit">
+          <span>Search</span>
+        </button>
+      </form>
+    </div>
+  );
+};
