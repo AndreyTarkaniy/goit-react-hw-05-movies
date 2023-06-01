@@ -7,7 +7,6 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   // const [, setIsLoading] = useState(false);
   const [, setError] = useState(null);
-  console.log(getTrendingMovies());
 
   useEffect(() => {
     const asyncWrapper = async () => {
