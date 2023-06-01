@@ -6,11 +6,9 @@ export const getTrendingMovies = async () => {
   const { data } = await axios.get(
     `${BASE_URL}trending/all/day?api_key=${API_KEY}`
   );
+  console.log(data);
 
   return data.results.map(({ id, title }) => {
-    return {
-      id,
-      title,
-    };
+    return { id, title };
   });
 };
