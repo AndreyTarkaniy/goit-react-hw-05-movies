@@ -1,23 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MoviesList } from 'components/moviesList/moviesList';
-import { useEffect } from 'react';
+import { Loader } from 'components/loader/Loader';
+
 import { getTrendingMovies } from 'api/movies-service';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
-  // const [, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [, setError] = useState(null);
 
   useEffect(() => {
     const asyncWrapper = async () => {
       try {
-        // setIsLoading(true);
+        setIsLoading(true);
         const data = await getTrendingMovies();
         setMovies(data);
       } catch (error) {
         setError('Oops');
       } finally {
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     };
     asyncWrapper();
@@ -27,7 +28,7 @@ const Home = () => {
     <div>
       <h1>Trending today</h1>
       <MoviesList movies={movies} />
-      {/* {isLoading && <Loader/>} */}
+      {isLoading && <Loader />}
     </div>
   );
 };

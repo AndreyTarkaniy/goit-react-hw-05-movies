@@ -5,23 +5,24 @@ import { useParams } from 'react-router-dom';
 
 import { getMovieInfo } from 'api/movies-service';
 import { MovieInfo } from 'components/movieInfo/movieInfo';
+import { Loader } from 'components/loader/Loader';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  // const [, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [, setError] = useState(null);
 
   useEffect(() => {
     (async () => {
       try {
-        // setIsLoading(true);
+        setIsLoading(true);
         const data = await getMovieInfo(movieId);
         setMovie(data);
       } catch (error) {
         setError('Oops');
       } finally {
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     })();
   }, [movieId]);
@@ -37,6 +38,7 @@ export const MovieDetails = () => {
           <Link to="cast">Cast</Link>
         </li>
       </ul>
+      {isLoading && <Loader />}
       <Outlet />
     </div>
   );

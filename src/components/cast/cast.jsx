@@ -3,23 +3,24 @@ import { useEffect, useState } from 'react';
 
 import { CastInfo } from 'components/cast/castInfo';
 import { getCastInfo } from 'api/movies-service';
+import { Loader } from 'components/loader/Loader';
 
 export const Cast = () => {
   const { movieId } = useParams();
   const [actors, setActors] = useState([]);
-  // const [, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [, setError] = useState(null);
 
   useEffect(() => {
     (async () => {
       try {
-        // setIsLoading(true);
+        setIsLoading(true);
         const data = await getCastInfo(movieId);
         setActors(data);
       } catch (error) {
         setError('Oops');
       } finally {
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     })();
   }, [movieId]);
@@ -27,6 +28,7 @@ export const Cast = () => {
   return (
     <div>
       <CastInfo actors={actors} />
+      {isLoading && <Loader />}
     </div>
   );
 };

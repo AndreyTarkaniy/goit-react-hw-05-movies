@@ -5,12 +5,12 @@ import { getByName } from 'api/movies-service';
 
 import { SearchForm } from 'components/searchForm/searchForm';
 import { MoviesList } from 'components/moviesList/moviesList';
+import { Loader } from 'components/loader/Loader';
 
 const Movies = () => {
- 
   const [searchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
-  // const [, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [, setError] = useState(null);
 
   console.log(searchParams.get('query'));
@@ -23,13 +23,13 @@ const Movies = () => {
 
     const asyncWrapper = async () => {
       try {
-        // setIsLoading(true);
+        setIsLoading(true);
         const data = await getByName(querySearchForm);
         setMovies(data);
       } catch (error) {
         setError('Oops');
       } finally {
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     };
     asyncWrapper();
@@ -40,6 +40,7 @@ const Movies = () => {
       <h1>Movies</h1>
       <SearchForm />
       <MoviesList movies={movies} />
+      {isLoading && <Loader />}
     </div>
   );
 };
