@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -29,15 +29,15 @@ export const MovieDetails = () => {
   return (
     <div>
       {movie && <MovieInfo {...movie} />}
-      {/* <ul>
-        <li>
-          <Link to="cast">Cast</Link>
-        </li>
+      <ul>
         <li>
           <Link to="rewiews">Reviews</Link>
         </li>
-      </ul> */}
-      {/* <Outlet /> */}
+        <li>
+          <Link to="cast">Cast</Link>
+        </li>
+      </ul>
+      <Outlet />
     </div>
   );
 };

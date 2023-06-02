@@ -7,6 +7,7 @@ import { SearchForm } from 'components/searchForm/searchForm';
 import { MoviesList } from 'components/moviesList/moviesList';
 
 const Movies = () => {
+ 
   const [searchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
   // const [, setIsLoading] = useState(false);

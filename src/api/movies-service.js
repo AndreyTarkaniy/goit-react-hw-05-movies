@@ -29,3 +29,14 @@ export const getByName = async querySearchForm => {
     return { id, title };
   });
 };
+
+export const getCastInfo = async id => {
+  const { data } = await axios.get(
+    `${BASE_URL}movie/${id}/credits?api_key=${API_KEY}`
+  );
+  console.log(data.cast);
+
+  return data.cast.map(({ id, profile_path, name, character }) => {
+    return { id, profile_path, name, character };
+  });
+};
