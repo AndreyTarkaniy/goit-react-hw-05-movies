@@ -36,7 +36,7 @@ export const getCastInfo = async id => {
   );
   // console.log(data.cast);
 
-  return data.cast.map(({ profile_path, name, character }) => {
+  return data.cast.map(({ id, profile_path, name, character }) => {
     return { id, profile_path, name, character };
   });
 };
@@ -47,7 +47,7 @@ export const getReviewsInfo = async id => {
   );
   console.log(data.results);
 
-  return data.results.map(({ author, content }) => {
-    return { author, content };
+  return data.results.map(({ id, author, content }) => {
+    return { id, author, content };
   });
 };
