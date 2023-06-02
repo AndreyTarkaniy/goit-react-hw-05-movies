@@ -34,9 +34,20 @@ export const getCastInfo = async id => {
   const { data } = await axios.get(
     `${BASE_URL}movie/${id}/credits?api_key=${API_KEY}`
   );
-  console.log(data.cast);
+  // console.log(data.cast);
 
-  return data.cast.map(({ id, profile_path, name, character }) => {
+  return data.cast.map(({ profile_path, name, character }) => {
     return { id, profile_path, name, character };
+  });
+};
+
+export const getReviewsInfo = async id => {
+  const { data } = await axios.get(
+    `${BASE_URL}movie/${id}/reviews?api_key=${API_KEY}`
+  );
+  console.log(data.results);
+
+  return data.results.map(({ author, content }) => {
+    return { author, content };
   });
 };

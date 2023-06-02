@@ -1,16 +1,14 @@
-export const ReviewsInfo = () => {
+export const ReviewsInfo = ({ reviews }) => {
   return (
-    <div>
-      <ul>
-        <li>
-          <h2>Author:SWITCH</h2>
-          <p>text</p>
-        </li>
-        <li>
-          <h2>Author:msbreviews</h2>
-          <p>text</p>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      {reviews.map(({ id, author, content }) => {
+        return (
+          <li key={id}>
+            <h2>Author:{author}</h2>
+            <p>{content}</p>
+          </li>
+        );
+      })}
+    </ul>
   );
 };

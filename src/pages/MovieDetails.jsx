@@ -31,7 +31,7 @@ export const MovieDetails = () => {
       {movie && <MovieInfo {...movie} />}
       <ul>
         <li>
-          <Link to="rewiews">Reviews</Link>
+          <Link to="reviews">Reviews</Link>
         </li>
         <li>
           <Link to="cast">Cast</Link>
