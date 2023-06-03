@@ -7,6 +7,7 @@ import { getMovieInfo } from 'api/movies-service';
 import { MovieInfo } from 'components/movieInfo/movieInfo';
 import { Loader } from 'components/loader/Loader';
 import { GoBackBtn } from 'components/goBack/GoBack';
+import { Additional } from 'components/additional/additional';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
@@ -37,15 +38,17 @@ export const MovieDetails = () => {
       <GoBackBtn path={backLink.current} />
       {movie && <MovieInfo {...movie} />}
 
-      <ul>
-        <li>
-          <Link to="cast">Cast</Link>
-        </li>
+      <Additional>
+        <ul>
+          <li>
+            <Link to="cast">Cast</Link>
+          </li>
+          <li>
+            <Link to="reviews">Reviews</Link>
+          </li>
+        </ul>
+      </Additional>
 
-        <li>
-          <Link to="reviews">Reviews</Link>
-        </li>
-      </ul>
       {isLoading && <Loader />}
       <Outlet />
     </div>
