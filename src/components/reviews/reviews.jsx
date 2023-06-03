@@ -27,7 +27,11 @@ const Reviews = () => {
 
   return (
     <div>
-      <ReviewsInfo reviews={reviews} />
+      {reviews.length !== 0 ? (
+        <ReviewsInfo reviews={reviews} />
+      ) : (
+        <p>We, don't have any reviews for this movie.</p>
+      )}
       {isLoading && <Loader />}
     </div>
   );

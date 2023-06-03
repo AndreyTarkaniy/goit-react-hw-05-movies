@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const CastInfo = ({ actors }) => {
   return (
     <ul>
@@ -15,4 +17,14 @@ export const CastInfo = ({ actors }) => {
       })}
     </ul>
   );
+};
+
+CastInfo.propTypes = {
+  actors: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      profile_path: PropTypes.string,
+      name: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };

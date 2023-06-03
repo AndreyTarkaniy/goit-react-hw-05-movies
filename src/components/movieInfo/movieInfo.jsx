@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const MovieInfo = ({
   poster_path,
   title,
@@ -34,4 +36,13 @@ export const MovieInfo = ({
       </div>
     </div>
   );
+};
+
+MovieInfo.propTypes = {
+  poster_path: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  popularity: PropTypes.number.isRequired,
+  overview: PropTypes.string.isRequired,
+  genres: PropTypes.array.isRequired,
 };
