@@ -38,10 +38,11 @@ export const MovieDetails = () => {
       {movie && <MovieInfo {...movie} />}
       <ul>
         <li>
-          <Link to="reviews">Reviews</Link>
-        </li>
-        <li>
           <Link to="cast">Cast</Link>
+        </li>
+
+        <li>
+          <Link to="reviews">Reviews</Link>
         </li>
       </ul>
       {isLoading && <Loader />}

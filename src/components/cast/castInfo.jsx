@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import Image from 'components/cast/img.jpg';
 
 export const CastInfo = ({ actors }) => {
   return (
@@ -6,10 +7,15 @@ export const CastInfo = ({ actors }) => {
       {actors.map(({ id, profile_path, name, character }) => {
         return (
           <li key={id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w200${profile_path}`}
-              alt={name}
-            />
+            {profile_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/w200${profile_path}`}
+                alt={name}
+              />
+            ) : (
+              <img src={Image} alt={name} width={200} />
+            )}
+
             <h3>{name}</h3>
             <p>{character}</p>
           </li>
