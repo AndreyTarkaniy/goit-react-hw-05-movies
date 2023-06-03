@@ -5,7 +5,7 @@ import { ReviewsInfo } from 'components/reviews/reviewsInfo';
 import { getReviewsInfo } from 'api/movies-service';
 import { Loader } from 'components/loader/Loader';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,3 +32,5 @@ export const Reviews = () => {
     </div>
   );
 };
+
+export default Reviews;
