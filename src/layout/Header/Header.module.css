@@ -1,0 +1,19 @@
+.headerList {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.headerItem {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.headerItem:hover {
+  color: tomato;
+  text-decoration: underline 2px;
+}
+/* .active {
+  color: blue;
+} */
