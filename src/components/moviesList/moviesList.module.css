@@ -1,0 +1,14 @@
+.list {
+  list-style: none;
+}
+
+.link:focus {
+  color: rgb(245, 6, 6);
+}
+
+.link:hover {
+  background-color: rgb(132, 210, 30);
+}
+.link:visited {
+  color: blue;
+}

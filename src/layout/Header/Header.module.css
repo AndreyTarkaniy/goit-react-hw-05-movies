@@ -1,3 +1,8 @@
+.headerNav {
+  border-bottom: solid 1px rgb(209, 206, 206);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 1));
+}
+
 .headerList {
   display: flex;
   gap: 20px;
@@ -14,6 +19,6 @@
   color: tomato;
   text-decoration: underline 2px;
 }
-/* .active {
+.headerItem:active {
   color: blue;
-} */
+}

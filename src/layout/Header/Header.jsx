@@ -13,7 +13,7 @@ export const Header = () => {
         </li>
         <li>
           <Link className={css.headerItem} to="/movies">
-            Movies
+            <span className={css.active}>Movies</span>
           </Link>
         </li>
       </ul>
