@@ -1,6 +1,7 @@
 .headerNav {
   border-bottom: solid 1px rgb(209, 206, 206);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 1));
+  margin-bottom: 20px;
 }
 
 .headerList {

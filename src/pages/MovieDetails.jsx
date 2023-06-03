@@ -36,6 +36,7 @@ export const MovieDetails = () => {
     <div>
       <GoBackBtn path={backLink.current} />
       {movie && <MovieInfo {...movie} />}
+
       <ul>
         <li>
           <Link to="cast">Cast</Link>

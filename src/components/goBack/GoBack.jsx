@@ -4,9 +4,11 @@ import css from 'components/goBack/GoBack.module.css';
 
 export const GoBackBtn = ({ path }) => {
   return (
-    <Link className={css.btn} to={path}>
-      Go back
-    </Link>
+    <div className={css.btnWrap}>
+      <Link className={css.btn} to={path}>
+        Go back
+      </Link>
+    </div>
   );
 };
 

@@ -1,28 +1,32 @@
 import PropTypes from 'prop-types';
 
+import css from 'components/movieInfo/movieInfo.module.css';
+
 export const MovieInfo = ({
   poster_path,
   title,
   release_date,
-  popularity,
+  vote_average,
   overview,
   genres,
 }) => {
   return (
-    <div>
-      <div>
+    <div className={css.section}>
+      <div className={css.imgBox}>
         <img
           src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
           alt={title}
         />
       </div>
 
-      <div>
-        <h2>
+      <div className={css.infoBox}>
+        <h2 className={css.title}>
           {title}({release_date})
         </h2>
-        <p>User Score: {popularity}%</p>
-        <ul>
+        <p className={css.score}>
+          User Score: {(vote_average * 10).toFixed()}%
+        </p>
+        <ul className={css.list}>
           <li>
             <h3>Overview</h3>
             <p>{overview}</p>

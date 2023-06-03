@@ -1,0 +1,10 @@
+.section {
+  display: flex;
+  gap: 20px;
+  border-bottom: solid 1px black;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
