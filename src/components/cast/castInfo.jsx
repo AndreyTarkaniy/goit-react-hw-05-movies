@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Image from 'components/cast/img.jpg';
+import Image from 'img/img.jpg';
 
 export const CastInfo = ({ actors }) => {
   return (

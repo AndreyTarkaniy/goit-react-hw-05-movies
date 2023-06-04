@@ -2,6 +2,11 @@ import PropTypes from 'prop-types';
 
 import css from 'components/movieInfo/movieInfo.module.css';
 
+import noPoster from 'img/poster.jpg';
+
+const getPoster = poster_path =>
+  poster_path ? `https://image.tmdb.org/t/p/w300/${poster_path}` : noPoster;
+
 export const MovieInfo = ({
   poster_path,
   title,
@@ -13,10 +18,7 @@ export const MovieInfo = ({
   return (
     <div className={css.section}>
       <div className={css.imgBox}>
-        <img
-          src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-          alt={title}
-        />
+        <img src={getPoster(poster_path)} alt={title} width={300} />
       </div>
 
       <div className={css.infoBox}>
@@ -46,7 +48,7 @@ MovieInfo.propTypes = {
   poster_path: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   release_date: PropTypes.string.isRequired,
-  popularity: PropTypes.number.isRequired,
+  vote_average: PropTypes.number.isRequired,
   overview: PropTypes.string.isRequired,
   genres: PropTypes.array.isRequired,
 };

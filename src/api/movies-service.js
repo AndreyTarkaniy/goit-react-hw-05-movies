@@ -15,9 +15,10 @@ export const getTrendingMovies = async () => {
 
 export const getMovieInfo = async id => {
   const { data } = await axios.get(`${BASE_URL}movie/${id}?api_key=${API_KEY}`);
-  console.log(data);
+  const { poster_path, title, release_date, vote_average, overview, genres } =
+    data;
 
-  return data;
+  return { poster_path, title, release_date, vote_average, overview, genres };
 };
 
 export const getByName = async querySearchForm => {
