@@ -9,7 +9,7 @@ import { Loader } from 'components/loader/Loader';
 import { GoBackBtn } from 'components/goBack/GoBack';
 import { Additional } from 'components/additional/additional';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);

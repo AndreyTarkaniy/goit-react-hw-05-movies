@@ -5,7 +5,7 @@ import { CastInfo } from 'components/cast/castInfo';
 import { getCastInfo } from 'api/movies-service';
 import { Loader } from 'components/loader/Loader';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [actors, setActors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
